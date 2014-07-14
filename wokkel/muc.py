@@ -1313,6 +1313,10 @@ class MUCClient(MUCClientProtocol):
         user.status = presence.status
         user.show = presence.show
 
+        # Update user affiliation and role
+        user.affiliation = presence.affiliation
+        user.role = presence.role
+
         if room.inRoster(user):
             self.userUpdatedStatus(room, user, presence.show, presence.status)
         else:
